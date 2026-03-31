@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Calculator — LLM Token Counter</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔢</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1>🔢 Token Calculator</h1>
+                <span class="subtitle">Count tokens for any LLM</span>
+            </div>
+            <div class="header-right">
+                <button id="themeToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+                <a href="https://github.com/shrekzang-coder/token-calculator" class="icon-btn" title="GitHub" target="_blank">⭐</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Input Area -->
+            <section class="input-section">
+                <div class="input-header">
+                    <label for="textInput">Paste or type your text:</label>
+                    <div class="input-actions">
+                        <button id="pasteBtn" class="btn btn-sm">📋 Paste</button>
+                        <button id="clearBtn" class="btn btn-sm">🗑️ Clear</button>
+                        <button id="sampleBtn" class="btn btn-sm">📝 Sample</button>
+                    </div>
+                </div>
+                <textarea id="textInput" placeholder="Type or paste your text here to count tokens..." rows="10"></textarea>
+            </section>
+
+            <!-- Stats Bar -->
+            <section class="stats-bar">
+                <div class="stat">
+                    <span class="stat-value" id="charCount">0</span>
+                    <span class="stat-label">Characters</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="wordCount">0</span>
+                    <span class="stat-label">Words</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="lineCount">0</span>
+                    <span class="stat-label">Lines</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="sentenceCount">0</span>
+                    <span class="stat-label">Sentences</span>
+                </div>
+            </section>
+
+            <!-- Model Results -->
+            <section class="results-section">
+                <h2>Token Counts by Model</h2>
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- Cost Estimator -->
+            <section class="cost-section">
+                <h2>💰 Cost Estimator</h2>
+                <div class="cost-controls">
+                    <label>
+                        Output tokens (estimated):
+                        <input type="number" id="outputTokens" value="500" min="0" step="100">
+                    </label>
+                </div>
+                <div class="cost-grid" id="costGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with ❤️ by <a href="https://github.com/shrekzang-coder" target="_blank">shrekzang-coder</a> · <a href="https://github.com/shrekzang-coder/token-calculator" target="_blank">Source Code</a> · MIT License</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-tiktoken@1.0.12/dist/browser.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
